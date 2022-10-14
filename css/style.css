@@ -1,0 +1,154 @@
+
+/* this is the default view*/
+
+/*setting the body font, background-image, and color*/
+body{
+  font-family: Poppins, serif;
+  background-image: url('../images/concrete_seamless.png');
+  background-color: #f1f1f1;
+}
+
+/*animate the logo*/
+#logo{
+  animation-name: animate;
+  animation-duration: 5s;
+}
+
+@keyframes animate {
+  0% {width: 25px; opacity: 0};
+  100% {width: 475px; opacity: 1};
+}
+
+/*make header item flex and center*/
+header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*make nav links flex and center*/
+.nav_links{
+  display:flex;
+  flex-direction: column;
+}
+
+/*make visited links not change color*/
+a:visited{
+  color: #0000ff;
+}
+
+/*make all the cards blue, in the desired position and with curved edges*/
+.card > header{
+  background-color: #288088;
+  border: 2px solid #45ADAD;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+/*make curved edges and set inital size*/
+.card{
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  flex-basis: 450px;
+}
+/*make  all the pricing cards flex and centered*/
+.pricing{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/*make gallery flex item (row style)*/
+.gallery{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/*style the images*/
+.gallery img{
+  border: solid 10px #50C7C7;
+  margin: 10px;
+  width: 300px;
+}
+
+/*media screen for when screen size is greater than 900px*/
+@media screen and (min-width: 900px){
+  /*make header flex item and spacing*/
+  header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  } 
+  /*make nav links flex item and in a row*/
+  .nav_links{
+    flex-direction: row;
+  }
+  /*set inital size as 275px*/
+  .card{
+    flex-basis: 275px;
+  }
+
+  .pricing{
+    flex-basis: 275px;
+  }
+  /*when scrolling make header stay as you scroll*/
+  body > header{
+    position: sticky;
+    top: 0;
+    left: 0;
+  } 
+
+}
+
+/*media screen for those who prefer reduced motion*/
+@media screen and (prefers-reduced-motion: reduce){
+  
+  #logo{
+      animation-duration: 0s;
+  }
+
+}
+
+/*media screen for print */
+@media print{
+  /*set body font and no background image*/
+  body{
+    font-family: Arial, Helvetica;
+    background-image: none;
+  }
+  /*position nav links*/
+  nav{
+    width: 100%;
+  }
+
+  .nav_links{
+      flex-direction: row; 
+      justify-content: space-around;
+  }
+  /*align prices at bottom*/
+  .pricing{
+    align-items: end;
+    flex-wrap: nowrap; 
+  }
+  /*style the cards*/
+  .card{
+    border: solid 2px #45ADDD;
+    flex-basis: 325px;
+  }
+  /*don't display gallery*/
+  .gallery{
+    display: none;
+  }
+
+  /*adding thumbs up */
+  .card ul li:nth-child(2):after{
+    content: '\1F44D'
+}
+
+}
